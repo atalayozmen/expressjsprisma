@@ -10,9 +10,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Todo {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  text      String
-  completed Boolean
+model TechRadarElement {
+  id       Int     @id @default(autoincrement())
+  quadrant Int
+  ring     Int
+  label    String  @db.VarChar(255)
+  active   Boolean
+  link     String? @db.VarChar(255)
+  moved    Int
 }
